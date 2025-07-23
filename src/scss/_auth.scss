@@ -1,0 +1,15 @@
+.auth {
+    background: #141E30;
+    /* fallback for old browsers */
+
+    background: linear-gradient(to right, #243B55, $primary);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .card{
+        max-width: 500px;
+    }
+
+}
