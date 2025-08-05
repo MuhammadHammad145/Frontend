@@ -25,7 +25,7 @@ const Login = () => {
         const {  email, password} = state
         const user = {  email, password}
         setIsProcessing(true)
-        axios.post('http://localhost:8000/auth/login',user)
+        axios.post('https://back-end-s7bw.vercel.app/auth/login',user)
         .then(({status,data})=>{
             if(status === 201){
                 message.success(data.message)

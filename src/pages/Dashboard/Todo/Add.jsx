@@ -36,7 +36,7 @@ const Add = () => {
         const config = { headers: { Authorization: `Bearer ${token}` } }
     console.log('todo', todo)
     setIsProcessing(true)
-    axios.post("http://localhost:8000/todo/post",todo,config)
+    axios.post("https://back-end-s7bw.vercel.app/todo/post",todo,config)
     .then(({status,data})=>{
       if(status == 200){
         message.success(data.message)

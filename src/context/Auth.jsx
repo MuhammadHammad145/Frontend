@@ -25,7 +25,7 @@ const AuthContext = ({children}) => {
         const token=localStorage.getItem("jwt")
         const config={headers:{Authorization : `Bearer ${token}`}}
 
-        axios.get(`http://localhost:8000/auth/get`,config)
+        axios.get(`https://back-end-s7bw.vercel.app/auth/get`,config)
         .then(({status,data})=>{
             if(status == 201){
                 // message.success(data.message)

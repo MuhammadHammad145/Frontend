@@ -29,7 +29,7 @@ const All = () => {
         const token = localStorage.getItem("jwt")
         const config = { headers: { Authorization: `Bearer ${token}` } }
         setIsLoading(true)
-        axios.get(`http://localhost:8000/todo/get`, config)
+        axios.get(`https://back-end-s7bw.vercel.app/todo/get`, config)
             .then(({ status, data }) => {
                 if (status == 200) {
                     setTodos(data.todo)
@@ -64,7 +64,7 @@ const All = () => {
         const config = { headers: { Authorization: `Bearer ${token}` } }
         try {
 
-            axios.patch(`http://localhost:8000/todo/update/${todo.id}`, updateDate, config)
+            axios.patch(`https://back-end-s7bw.vercel.app/todo/update/${todo.id}`, updateDate, config)
             const updateDocuments = todos.map(item => {
                 if (item.id === todo.id)
                     return { ...todo, ...updateDate }
@@ -89,7 +89,7 @@ const All = () => {
         try {
             const token = localStorage.getItem("jwt")
             const config = { headers: { Authorization: `Bearer ${token}` } }
-            axios.delete(`http://localhost:8000/todo/delete/${todo.id}`, config)
+            axios.delete(`https://back-end-s7bw.vercel.app/todo/delete/${todo.id}`, config)
 
             const filteredDocument = todos.filter(item => item.id !== todo.id)
 
