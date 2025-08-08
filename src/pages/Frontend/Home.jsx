@@ -1,7 +1,8 @@
 import React from 'react'
-import Header from '../../components/Header'
+
 import Footer from '../../components/Footer'
 import { Col, Row,Typography } from 'antd'
+import Header from '../../components/Header'
 
 const {Title}=Typography
 const Frontend = () => {

@@ -6,7 +6,7 @@ import axios from 'axios';
 
 const initialState = { firstName: "", lastName: "", email: "", password: "", confirmPassword: "" }
 
-const { Title } = Typography
+const { Title,Paragraph } = Typography
 const Register = () => {
 
     const navigate = useNavigate()
@@ -25,7 +25,7 @@ const Register = () => {
         const fullName = `${firstName} ${lastName}`
         const user = { firstName, lastName, email, password, fullName }
         setIsProcessing(true)
-        axios.post("http://localhost:8000/auth/register", user)
+        axios.post("https://back-end-s7bw.vercel.app/auth/register", user)
             .then(({ status, data }) => {
                 if (status == 201) {
                     message.success(data.message)
@@ -78,6 +78,9 @@ const Register = () => {
                         </Col>
                         <Col span={24}>
                             <Button type='primary' htmlType='submit' size='large' block loading={isProcessing} onClick={handleSubmit}>Register</Button>
+                        </Col>
+                        <Col span={24}>
+                            <Paragraph className='mt-3 text-center'>If already have an account <span style={{color:"blue",cursor:"pointer"}} onClick={()=>navigate("/auth/login")}>Login</span></Paragraph>
                         </Col>
 
 

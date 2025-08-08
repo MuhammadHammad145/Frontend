@@ -25,7 +25,7 @@ const AuthContext = ({children}) => {
         const token=localStorage.getItem("jwt")
         const config={headers:{Authorization : `Bearer ${token}`}}
 
-        axios.get(`https://back-end-s7bw.vercel.app/auth/get`,config)
+        axios.get(`http://localhost:8000/auth/get`,config)
         .then(({status,data})=>{
             if(status == 201){
                 // message.success(data.message)
@@ -54,14 +54,14 @@ const AuthContext = ({children}) => {
         try {
             const token = localStorage.getItem("jwt");
              const config={headers:{Authorization : `Bearer ${token}`}}
-            await axios.post("http://localhost:8000/auth/logout", {}, config);
+            await axios.post("https://back-end-s7bw.vercel.app/auth/logout", {}, config);
 
             localStorage.removeItem("jwt"); // Remove token
             dispatch({ type: "SET_LOGGED_OUT" });
             message.success("Logged out successfully");
             navigate("/auth/login");
         } catch (error) {
-            message.error("Logout failed");
+            // message.error("Logout failed");
             console.log('error', error)
         }
     };
